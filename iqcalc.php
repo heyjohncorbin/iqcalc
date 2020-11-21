@@ -63,7 +63,7 @@ add_action( 'admin_init', 'iqcalc_settings_init' );
 	}
 	
 function iqcalc_function() {
-	$iqcalc_date = $_GET['date'];
+	$iqcalc_date = sanitize_text_field( $_GET['date'] );
 	$iqcalc_options = get_option( 'iqcalc_settings' );
 	$iqcalc_result = "<h4>Please use the date your symptoms began, the date of your test (if no symptoms), or the date your were last in contact with a COVID-19 positive individual (if identified as a close contact by a contact tracer).</h4>";
 	$iqcalc_result .= '<form action="index.php" method="get"><input type="date" name="date"><br /><input type="submit"></form>';
