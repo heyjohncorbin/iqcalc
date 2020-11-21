@@ -2,7 +2,7 @@
 /**
  * Plugin Name: IQCalc - COVID-19 Isolation and Quarantine Calculator
  * Description: Generates estimate isolation and quarantine periods based on available best practices.
- * Version:     1.3
+ * Version:     1.4
  * Author:      John C
  * License:     GPLv2 or later.
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
