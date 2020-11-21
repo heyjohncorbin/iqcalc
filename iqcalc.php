@@ -63,11 +63,11 @@ add_action( 'admin_init', 'iqcalc_settings_init' );
 	}
 	
 function iqcalc_function() {
-	$iqcalc_date = sanitize_text_field( $_GET['date'] );
+	$iqcalc_date = strip_tags( $_GET['date'] );
 	$iqcalc_options = get_option( 'iqcalc_settings' );
 	$iqcalc_result = "<h4>Please use the date your symptoms began, the date of your test (if no symptoms), or the date your were last in contact with a COVID-19 positive individual (if identified as a close contact by a contact tracer).</h4>";
 	$iqcalc_result .= '<form action="index.php" method="get"><input type="date" name="date"><br /><input type="submit"></form>';
-	if( isset( $iqcalc_date ) ) { 
+	if( $iqcalc_date != "" ) { 
 		$iqcalc_result .= "<p>If you have tested positive and you had symptoms (assuming your symptoms have improved and you've gone 24+ hours without fever or medication) or you have no symptoms:</p>";
 		$iqcalc_result .= "<p><strong>Your last full day of isolation is " . date('F jS, Y', strtotime($iqcalc_date . ' + 10 days')) . ".</strong></p>";
 		$iqcalc_result .= "<p>If you have been identified as someone who is a close contact of a COVID-19 case, and you do not have any symptoms:</p>";
